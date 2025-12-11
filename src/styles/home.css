@@ -1,4 +1,6 @@
 #root{
   min-height: 100dvh;
   width: 100dvw;
+  background: var(--main-bg);
+  color: var(--text-primary);
 }

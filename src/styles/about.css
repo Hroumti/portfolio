@@ -1,16 +1,15 @@
-/* About Page - Cyberpunk Theme */
+/* About Page - Minimalist Black & White Theme */
 
 /* Base Styles */
 :root {
-  --bg-primary: #0A0A0A;          /* Deeper near-black */
-  --bg-secondary: #121212;        /* Dark Blue-Tinged Gray */
-  --text-primary: #E0E0FF;        /* Brighter Cyan-Tinted Gray */
-  --text-secondary: #A0A0FF;      /* Muted Cyan-Tinted Gray */
-  --accent-neon-green: #39FF14;    /* Neon Green */
-  --accent-cyber-yellow: #FFDF00;  /* Cyber Yellow */
-  --accent-purple: #7B2CBF;       /* Purple */
-  --accent-hot-pink: #FF005C;     /* Hot Pink */
-  --accent-electric-blue: #00FFFF; /* Electric Blue */
+  --main-bg: #000000;
+  --secondary-bg: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E5E5E5;
+  --hover-accent: #333333;
+  --active-accent: #555555;
+  --overlay-black: rgba(0, 0, 0, 0.25);
+  --overlay-white: rgba(255, 255, 255, 0.05);
   --glow: 0 0 10px;
 }
 
@@ -45,25 +44,21 @@
   position: relative;
   z-index: 1;
   background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  
   border: none;
   border-radius: 16px;
   padding: 3rem 2.5rem;
-  box-shadow: none;
+  box-shadow: 0 8px 32px var(--overlay-black);
 }
 
 /* About Title */
 .about-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 2rem;
-  font-family: 'Courier New', 'Monaco', monospace;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-electric-blue));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-primary);
   position: relative;
   display: inline-block;
   padding-bottom: 0.5rem;
@@ -77,9 +72,8 @@
   transform: translateX(-50%);
   width: 120px;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-hot-pink));
+  background: var(--text-secondary);
   border-radius: 2px;
-  box-shadow: var(--glow) var(--accent-purple);
 }
 
 /* About Text */
@@ -87,9 +81,9 @@
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   line-height: 1.8;
   margin-bottom: 3rem;
-  color: var(--text-primary);
-  font-family: 'Courier New', 'Monaco', monospace;
-  text-shadow: var(--glow) rgba(123, 44, 191, 0.2);
+  color: var(--text-secondary);
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  text-shadow: none;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -99,10 +93,10 @@
 .about-content h2 {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin: 3rem 0 2rem 0;
-  font-family: 'Courier New', 'Monaco', monospace;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
   font-weight: 600;
-  color: var(--accent-neon-green);
-  text-shadow: var(--glow) rgba(57, 255, 20, 0.3);
+  color: var(--text-primary);
+  text-shadow: none;
   position: relative;
 }
 
@@ -114,9 +108,8 @@
   transform: translateX(-50%);
   width: 80px;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-neon-green), var(--accent-cyber-yellow));
+  background: var(--text-secondary);
   border-radius: 2px;
-  box-shadow: var(--glow) var(--accent-neon-green);
 }
 
 /* Skills Container */
@@ -132,10 +125,10 @@
 
 /* Individual Skill Divs */
 .skill-div {
-  background: rgba(18, 18, 18, 0.6);
+  background: var(--secondary-bg);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border: 1px solid rgba(57, 255, 20, 0.2);
+  border: 1px solid var(--hover-accent);
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.3s ease;
@@ -150,16 +143,16 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, var(--overlay-white), transparent);
   transition: left 0.5s ease;
 }
 
 .skill-div:hover {
   transform: translateY(-5px);
-  border-color: rgba(57, 255, 20, 0.4);
+  border-color: var(--active-accent);
   box-shadow: 
-    0 8px 25px rgba(57, 255, 20, 0.2),
-    inset 0 1px 0 rgba(224, 224, 255, 0.1);
+    0 8px 25px rgba(85, 85, 85, 0.3),
+    inset 0 1px 0 var(--overlay-white);
 }
 
 .skill-div:hover::before {
@@ -169,10 +162,10 @@
 .skill-div h3 {
   font-size: clamp(1.2rem, 3vw, 1.5rem);
   margin-bottom: 1rem;
-  color: var(--accent-electric-blue);
-  font-family: 'Courier New', 'Monaco', monospace;
+  color: var(--text-primary);
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
   font-weight: 600;
-  text-shadow: var(--glow) rgba(0, 255, 255, 0.3);
+  text-shadow: none;
 }
 
 .skill-div ul {
@@ -183,8 +176,8 @@
 
 .skill-div ul li {
   padding: 0.5rem 0;
-  color: var(--text-primary);
-  font-family: 'Courier New', 'Monaco', monospace;
+  color: var(--text-secondary);
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
   font-size: clamp(0.9rem, 2vw, 1rem);
   position: relative;
   padding-left: 1.5rem;
@@ -195,18 +188,20 @@
   content: "▶";
   position: absolute;
   left: 0;
-  color: var(--accent-hot-pink);
+  color: var(--hover-accent);
   font-size: 0.8rem;
   transition: transform 0.3s ease;
 }
 
 .skill-div ul li:hover {
-  color: var(--accent-neon-green);
+  color: var(--text-primary);
+  cursor: pointer;
+  transform: rotate3d(1, 1, 1, 2deg);
 }
 
 .skill-div ul li:hover::before {
   transform: translateX(3px);
-  color: var(--accent-neon-green);
+  color: var(--text-primary);
 }
 
 /* Button Container */
@@ -223,20 +218,18 @@
   display: inline-block;
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  font-family: 'Courier New', 'Monaco', monospace;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
   font-weight: 600;
   letter-spacing: 1px;
   text-decoration: none;
-  border: none;
+  border: 1px solid var(--hover-accent);
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-electric-blue));
-  color: var(--bg-primary);
+  background: var(--secondary-bg);
+  color: var(--text-primary);
   text-shadow: none;
-  box-shadow: 
-    var(--glow) var(--accent-purple),
-    0 4px 15px rgba(123, 44, 191, 0.4);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.676);
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -256,13 +249,11 @@
 }
 
 .about-button:hover {
-  background: linear-gradient(90deg, var(--accent-electric-blue), var(--accent-hot-pink));
-  color: var(--bg-primary);
-  box-shadow: 
-    var(--glow) var(--accent-electric-blue),
-    0 6px 20px rgba(0, 255, 255, 0.4);
+  background: var(--hover-accent);
+  color: var(--text-primary);
+  border-color: var(--active-accent);
   transform: translateY(-3px);
-  animation: glowPulse 1s ease-in-out infinite alternate;
+  animation: none;
 }
 
 .about-button:hover::before {
@@ -277,13 +268,13 @@
 @keyframes glowPulse {
   0% {
     box-shadow: 
-      0 0 5px var(--accent-electric-blue),
-      0 6px 20px rgba(0, 255, 255, 0.4);
+      0 0 5px var(--text-secondary),
+      0 6px 20px rgba(229, 229, 229, 0.2);
   }
   100% {
     box-shadow: 
-      0 0 20px var(--accent-electric-blue),
-      0 6px 25px rgba(0, 255, 255, 0.6);
+      0 0 20px var(--text-secondary),
+      0 6px 25px rgba(229, 229, 229, 0.3);
   }
 }
 

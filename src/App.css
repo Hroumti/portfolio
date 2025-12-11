@@ -1,3 +1,5 @@
 #root {
   width: 100vw;
+  background: var(--main-bg);
+  color: var(--text-primary);
 }

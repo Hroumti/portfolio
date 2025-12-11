@@ -1,14 +1,13 @@
 /* Base Styles */
 :root {
-  --bg-primary: #0A0A0A;          /* Deeper near-black */
-  --bg-secondary: #121212;        /* Dark Blue-Tinged Gray */
-  --text-primary: #E0E0FF;        /* Brighter Cyan-Tinted Gray */
-  --text-secondary: #A0A0FF;      /* Muted Cyan-Tinted Gray */
-  --accent-neon-green: #39FF14;    /* Neon Green */
-  --accent-cyber-yellow: #FFDF00;  /* Cyber Yellow */
-  --accent-purple: #7B2CBF;       /* Purple */
-  --accent-hot-pink: #FF005C;     /* Hot Pink */
-  --accent-electric-blue: #00FFFF; /* Electric Blue */
+  --main-bg: #000000;
+  --secondary-bg: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E5E5E5;
+  --hover-accent: #333333;
+  --active-accent: #555555;
+  --overlay-black: rgba(0, 0, 0, 0.25);
+  --overlay-white: rgba(255, 255, 255, 0.05);
   --glow: 0 0 10px;
 }
 
@@ -16,7 +15,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', 'Monaco', monospace;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
   background: transparent;
   color: var(--text-primary);
   min-height: 100vh;
@@ -41,8 +40,8 @@ body {
   width: 100%;
   height: 100%;
   background:
-    linear-gradient(rgba(123, 44, 191, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(123, 44, 191, 0.1) 1px, transparent 1px);
+    linear-gradient(var(--overlay-white) 1px, transparent 1px),
+    linear-gradient(90deg, var(--overlay-white) 1px, transparent 1px);
   background-size: 50px 50px;
   opacity: 0.3;
   z-index: -1;
@@ -53,10 +52,6 @@ body {
   margin-bottom: 1.5rem;
   color: var(--text-primary);
   text-shadow: none;
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-electric-blue));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   font-weight: 700;
   letter-spacing: 2px;
   position: relative;
@@ -72,7 +67,7 @@ body {
   transform: translateX(-50%);
   width: 120px;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-hot-pink));
+  background: var(--text-secondary);
   border-radius: 2px;
 }
 
@@ -81,7 +76,7 @@ body {
   font-size: 1.5rem;
   margin-bottom: 3rem;
   color: var(--text-secondary);
-  text-shadow: var(--glow) rgba(123, 44, 191, 0.3);
+  text-shadow: none;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -96,42 +91,40 @@ body {
 .button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  border: none;
-  border-radius: 4px;
+  border: 1px solid var(--hover-accent);
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(90deg, var(--accent-purple), var(--accent-electric-blue));
+  background: var(--secondary-bg);
   color: var(--text-primary);
-  text-shadow: var(--glow) var(--accent-purple);
-  box-shadow: var(--glow) var(--accent-purple);
+  text-shadow: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.676);
   position: relative;
   overflow: hidden;
   z-index: 1;
-  color: black;
   animation: float 3s ease-in-out infinite alternate;
   text-decoration: none;
   display: inline-block;
   font-weight: 700;
   letter-spacing: 2px;
   padding-bottom: 0.5rem;
-
 }
 
 .button:hover {
-  background: linear-gradient(90deg, var(--accent-electric-blue), var(--accent-purple));
+  background: var(--hover-accent);
   color: var(--text-primary);
-  text-shadow: var(--glow) var(--accent-electric-blue);
-  box-shadow: var(--glow) var(--accent-electric-blue);
-  animation: glowPulse 1s ease-in-out infinite alternate;
+  border-color: var(--active-accent);
+  transform: translateY(-3px);
+  animation: none;
 }
 
 /* Animations */
 @keyframes glowPulse {
   0% {
-    text-shadow: 0 0 100px var(--glow) var(--accent-purple);
+    box-shadow: 0 0 5px var(--text-secondary);
   }
   100% {
-    text-shadow: 0 0 20px var(--accent-hot-pink);
+    box-shadow: 0 0 20px var(--text-secondary);
   }
 }
 
