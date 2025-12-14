@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.kiro
+
+# environment variables
+.env
+.env.test
+.env.production

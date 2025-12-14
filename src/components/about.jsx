@@ -20,8 +20,7 @@ const About = () => {
       <div className="about-content" style={{ position: 'relative', zIndex: 1 }}>
         <h1 className="about-title">About Me</h1>
         <p className="about-text">
-          Hi, I’m Omar! I’m an aspiring full stack developer with a passion for building dynamic, user-friendly web applications. Currently, I’m studying and working on projects to expand my skills in React, Node.js, and modern web technologies.
-        </p>
+I’m Omar, a full stack developer-in-progress with a focus on creating practical, well-crafted web applications. When I’m not coding, I’m likely exploring new tools, learning new languages, or diving into the details of how things work under the hood.        </p>
 
         <h2>Skills & Technologies</h2>
         <div className="skills-container">
@@ -42,7 +41,7 @@ const About = () => {
                     <li>Express.js</li>
                     <li>MySQL</li>
                     <li>Firebase RTDB</li>
-                    <li>RESTful API</li>
+                    <li>MongoDB</li>
                 </ul>
             </div>
             <div className="skill-div">
@@ -50,9 +49,9 @@ const About = () => {
                 <ul>
                     <li>Git</li>
                     <li>GitHub</li>
+                    <li>GitLab</li>
                     <li>VS Code</li>
-                    <li>Postman</li>
-                    <li>Heroku</li>
+                    <li>Docker</li>
                 </ul>
             </div>
         </div>

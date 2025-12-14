@@ -1,0 +1,418 @@
+/* Obarakat Project Page - Minimalist Black & White Theme */
+
+/* Base Styles */
+:root {
+  --main-bg: #000000;
+  --secondary-bg: #111111;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E5E5E5;
+  --hover-accent: #333333;
+  --active-accent: #555555;
+  --overlay-black: rgba(0, 0, 0, 0.25);
+  --overlay-white: rgba(255, 255, 255, 0.05);
+  --glow: 0 0 10px;
+}
+
+/* Container */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Content Container */
+.obarakat-content {
+  max-width: 1200px;
+  width: 95%;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 8px 32px var(--overlay-black);
+}
+
+/* Main Title */
+.obarakat-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.obarakat-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: var(--text-secondary);
+  border-radius: 2px;
+}
+
+/* Description */
+.obarakat-description {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  color: var(--text-secondary);
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 3rem;
+  background: var(--secondary-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid var(--hover-accent);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--overlay-white), transparent);
+  transition: left 0.5s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+  border-color: var(--active-accent);
+  box-shadow: 
+    0 8px 25px rgba(85, 85, 85, 0.3),
+    inset 0 1px 0 var(--overlay-white);
+}
+
+.section:hover::before {
+  left: 100%;
+}
+
+/* Section Headings */
+.section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin: 0 0 2rem 0;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-weight: 600;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 80px;
+  height: 2px;
+  background: var(--text-secondary);
+  border-radius: 2px;
+}
+
+.section h3 {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin: 1.5rem 0 1rem 0;
+  color: var(--text-primary);
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-weight: 600;
+}
+
+/* Paragraphs */
+.section p {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+}
+
+/* Lists */
+.section ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.section ul li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  position: relative;
+  padding-left: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.section ul li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: var(--hover-accent);
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.section ul li:hover {
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.section ul li:hover::before {
+  transform: translateX(3px);
+  color: var(--text-primary);
+}
+
+/* Visuals Grid */
+.visuals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.visual-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--hover-accent);
+  transition: all 0.3s ease;
+  filter: grayscale(100%) contrast(1.2);
+}
+
+.visual-image:hover {
+  transform: scale(1.1);
+  border-color: var(--active-accent);
+  filter: grayscale(80%) contrast(1.3);
+  box-shadow: 0 8px 25px rgba(85, 85, 85, 0.3);
+  cursor: pointer;
+}
+
+/* Project Actions */
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border: 1px solid var(--hover-accent);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--secondary-bg);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
+}
+
+.action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--overlay-white), transparent);
+  transition: left 0.5s ease;
+}
+
+.action-button:hover {
+  background: var(--hover-accent);
+  border-color: var(--active-accent);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.action-button:hover::before {
+  left: 100%;
+}
+
+.action-button svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Navigation Buttons */
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border: 1px solid var(--hover-accent);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--secondary-bg);
+  color: var(--text-primary);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.676);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite alternate;
+  min-width: 120px;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.button:hover {
+  background: var(--hover-accent);
+  color: var(--text-primary);
+  border-color: var(--active-accent);
+  transform: translateY(-3px);
+  animation: none;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+  
+  .obarakat-content {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+    max-width: 95%;
+  }
+  
+  .obarakat-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .obarakat-description {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    margin-bottom: 2rem;
+  }
+  
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .visuals-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .project-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .action-button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .button-container {
+    gap: 1rem;
+  }
+  
+  .button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .obarakat-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .section {
+    padding: 1.25rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    animation: none;
+  }
+  
+  .button:hover {
+    animation: none;
+  }
+}
