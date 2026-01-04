@@ -1,8 +1,8 @@
-/* Contact Page - Minimalist Black & White Theme */
+/* Contact Page - Obsidian Glass Theme */
 
 /* Base Styles */
 :root {
-  --main-bg: #000000;
+  --main-bg: #050505;
   --secondary-bg: #111111;
   --text-primary: #FFFFFF;
   --text-secondary: #E5E5E5;
@@ -10,6 +10,9 @@
   --active-accent: #555555;
   --overlay-black: rgba(0, 0, 0, 0.25);
   --overlay-white: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(17, 17, 17, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --accent-glow: rgba(255, 255, 255, 0.03);
   --glow: 0 0 10px;
 }
 
@@ -45,8 +48,8 @@
 .contact-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1.5rem;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
   letter-spacing: 2px;
   color: var(--text-primary);
   position: relative;
@@ -72,7 +75,7 @@
   line-height: 1.6;
   margin-bottom: 0;
   color: var(--text-secondary);
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Text Content Span */
@@ -85,16 +88,16 @@
   padding: 1rem;
 }
 
-/* Contact Form */
+/* Contact Form - Floating Glass Panel */
 .contact-form {
-  background: rgba(17, 17, 17, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(51, 51, 51, 0.5);
-  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
   padding: 2rem;
   margin: 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -109,17 +112,14 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--overlay-white), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
   transition: left 0.5s ease;
 }
 
 .contact-form:hover {
-  transform: translateY(-5px);
-  border-color: rgba(85, 85, 85, 0.7);
-  box-shadow: 
-    0 8px 25px rgba(85, 85, 85, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  background: rgba(17, 17, 17, 0.4);
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .contact-form:hover::before {
@@ -132,18 +132,18 @@
   position: relative;
 }
 
-/* Form Inputs */
+/* Form Inputs - Glass Style */
 .form-input,
 .form-textarea {
   width: 100%;
   padding: 0.875rem 1rem;
   font-size: 0.95rem;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(51, 51, 51, 0.6);
+  font-family: 'Inter', sans-serif;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
   border-radius: 8px;
   color: var(--text-primary);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   outline: none;
   box-sizing: border-box;
 }
@@ -151,37 +151,38 @@
 .form-input::placeholder,
 .form-textarea::placeholder {
   color: var(--text-secondary);
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .form-input:focus,
 .form-textarea:focus {
-  border-color: rgba(85, 85, 85, 0.8);
-  box-shadow: 0 0 0 2px rgba(85, 85, 85, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .form-textarea {
   min-height: 100px;
   resize: vertical;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Submit Button */
+/* Submit Button - Ghost Style */
 .submit-button {
   width: 100%;
   padding: 0.875rem 1.5rem;
-  font-size: 1rem;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  letter-spacing: 1px;
-  background: var(--text-primary);
-  color: var(--main-bg);
-  border: 1px solid var(--text-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -194,15 +195,15 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.5s ease;
 }
 
 .submit-button:hover:not(:disabled) {
-  background: var(--text-secondary);
-  border-color: var(--text-secondary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .submit-button:hover:not(:disabled)::before {
@@ -210,7 +211,7 @@
 }
 
 .submit-button:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
@@ -222,15 +223,15 @@
 /* Message Status */
 .message-status {
   font-size: 0.9rem;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   text-align: center;
   margin: 1rem 0 0 0;
   padding: 0.625rem;
   border-radius: 6px;
-  background: rgba(51, 51, 51, 0.8);
+  background: var(--glass-bg);
   color: var(--text-primary);
-  border: 1px solid rgba(85, 85, 85, 0.6);
+  border: 1px solid var(--glass-border);
   backdrop-filter: blur(5px);
 }
 
@@ -251,26 +252,25 @@
   border-top: 1px solid rgba(51, 51, 51, 0.3);
 }
 
-/* Navigation Buttons */
+/* Navigation Buttons - Ghost Style */
 .button {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid var(--hover-accent);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background: var(--secondary-bg);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: transparent;
   color: var(--text-primary);
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.676);
   position: relative;
   overflow: hidden;
   z-index: 1;
-  animation: float 3s ease-in-out infinite alternate;
   min-width: 120px;
 }
 
@@ -281,16 +281,15 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.5s ease;
 }
 
 .button:hover {
-  background: var(--hover-accent);
-  color: var(--text-primary);
-  border-color: var(--active-accent);
-  transform: translateY(-3px);
-  animation: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .button:hover::before {

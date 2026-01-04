@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,8 +7,8 @@
 }
 
 :root {
-  /* Black and White Color Palette */
-  --main-bg: #000000;
+  /* Obsidian Glass Color Palette */
+  --main-bg: #050505;
   --secondary-bg: #111111;
   --text-primary: #FFFFFF;
   --text-secondary: #E5E5E5;
@@ -15,7 +17,13 @@
   --overlay-black: rgba(0, 0, 0, 0.25);
   --overlay-white: rgba(255, 255, 255, 0.05);
   
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* New Glass Variables */
+  --glass-bg: rgba(17, 17, 17, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --accent-glow: rgba(255, 255, 255, 0.03);
+  
+  /* Typography */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: dark;
@@ -27,12 +35,75 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Glass Panel Base Class */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px);
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--main-bg);
+}
+
+/* Ghost Button Style */
+.ghost-button {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: transparent;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.ghost-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.ghost-button:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.ghost-button:hover::before {
+  left: 100%;
+}
+
+/* Monospace text for technical details */
+.mono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 a {
@@ -48,20 +119,21 @@ a:hover {
 
 button {
   border-radius: 8px;
-  border: 1px solid var(--hover-accent);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  background-color: var(--secondary-bg);
+  font-family: 'Inter', inherit;
+  background-color: transparent;
   color: var(--text-primary);
   cursor: pointer;
   transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
 button:hover {
-  background-color: var(--hover-accent);
-  border-color: var(--active-accent);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
 

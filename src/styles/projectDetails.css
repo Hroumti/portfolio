@@ -1,8 +1,8 @@
-/* Obarakat Project Page - Minimalist Black & White Theme */
+/* Obarakat Project Page - Obsidian Glass Theme */
 
 /* Base Styles */
 :root {
-  --main-bg: #000000;
+  --main-bg: #050505;
   --secondary-bg: #111111;
   --text-primary: #FFFFFF;
   --text-secondary: #E5E5E5;
@@ -10,6 +10,9 @@
   --active-accent: #555555;
   --overlay-black: rgba(0, 0, 0, 0.25);
   --overlay-white: rgba(255, 255, 255, 0.05);
+  --glass-bg: rgba(17, 17, 17, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --accent-glow: rgba(255, 255, 255, 0.03);
   --glow: 0 0 10px;
 }
 
@@ -43,8 +46,8 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 2rem;
   text-align: center;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
-  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
   letter-spacing: 2px;
   color: var(--text-primary);
   position: relative;
@@ -71,23 +74,23 @@
   line-height: 1.8;
   margin-bottom: 3rem;
   color: var(--text-secondary);
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   text-align: center;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Sections */
+/* Sections - Glass Panel */
 .section {
   margin-bottom: 3rem;
-  background: var(--secondary-bg);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 1px solid var(--hover-accent);
-  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
 }
@@ -99,16 +102,14 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--overlay-white), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
   transition: left 0.5s ease;
 }
 
 .section:hover {
-  transform: translateY(-5px);
-  border-color: var(--active-accent);
-  box-shadow: 
-    0 8px 25px rgba(85, 85, 85, 0.3),
-    inset 0 1px 0 var(--overlay-white);
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .section:hover::before {
@@ -119,8 +120,8 @@
 .section h2 {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   margin: 0 0 2rem 0;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
   color: var(--text-primary);
   position: relative;
 }
@@ -140,7 +141,7 @@
   font-size: clamp(1.2rem, 3vw, 1.5rem);
   margin: 1.5rem 0 1rem 0;
   color: var(--text-primary);
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
 }
 
@@ -150,7 +151,7 @@
   line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: 1rem;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Lists */
@@ -163,8 +164,8 @@
 .section ul li {
   padding: 0.5rem 0;
   color: var(--text-secondary);
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   position: relative;
   padding-left: 1.5rem;
   transition: color 0.3s ease;
@@ -175,7 +176,7 @@
   position: absolute;
   left: 0;
   color: var(--hover-accent);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   transition: transform 0.3s ease;
 }
 
@@ -197,20 +198,21 @@
   margin-top: 1.5rem;
 }
 
+/* Visual Image - Zoom + Bloom Effect */
 .visual-image {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  border: 1px solid var(--hover-accent);
-  transition: all 0.3s ease;
-  filter: grayscale(100%) contrast(1.2);
+  border: 1px solid var(--glass-border);
+  transition: filter 0.5s ease, transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+  filter: brightness(0.7) contrast(1.2);
 }
 
 .visual-image:hover {
-  transform: scale(1.1);
-  border-color: var(--active-accent);
-  filter: grayscale(80%) contrast(1.3);
-  box-shadow: 0 8px 25px rgba(85, 85, 85, 0.3);
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.3);
+  filter: brightness(1) contrast(1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   cursor: pointer;
 }
 
@@ -223,22 +225,23 @@
   justify-content: center;
 }
 
+/* Action Button - Ghost Style */
 .action-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
   text-decoration: none;
-  border: 1px solid var(--hover-accent);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background: var(--secondary-bg);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: transparent;
   color: var(--text-primary);
   position: relative;
   overflow: hidden;
@@ -252,15 +255,15 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, var(--overlay-white), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.5s ease;
 }
 
 .action-button:hover {
-  background: var(--hover-accent);
-  border-color: var(--active-accent);
-  color: var(--text-primary);
-  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .action-button:hover::before {
@@ -282,26 +285,25 @@
   flex-wrap: wrap;
 }
 
-/* Navigation Buttons */
+/* Navigation Buttons - Ghost Style */
 .button {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-family: 'Montserrat', 'Poppins', 'Roboto', sans-serif;
+  padding: 0.8rem 1.8rem;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid var(--hover-accent);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background: var(--secondary-bg);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: transparent;
   color: var(--text-primary);
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.676);
   position: relative;
   overflow: hidden;
   z-index: 1;
-  animation: float 3s ease-in-out infinite alternate;
   min-width: 120px;
 }
 
@@ -312,16 +314,15 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.5s ease;
 }
 
 .button:hover {
-  background: var(--hover-accent);
-  color: var(--text-primary);
-  border-color: var(--active-accent);
-  transform: translateY(-3px);
-  animation: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .button:hover::before {

@@ -64,11 +64,11 @@ const ParticleBackground = () => {
             value: 150,
           },
           opacity: {
-            value: { min: 0.4, max: 0.9 },
+            value: { min: 0.2, max: 0.5 },
             animation: {
               enable: true,
               speed: 0.5,
-              minimumValue: 0.2,
+              minimumValue: 0.1,
             },
           },
           shape: {
